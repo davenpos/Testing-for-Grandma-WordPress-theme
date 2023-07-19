@@ -1,0 +1,261 @@
+/*
+Theme Name: Testing for Grandma
+Author: Simeon Davenport
+Version: 1.0
+*/
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background-color: #EEEEEE;
+	color: #111111;
+	text-shadow: 0.5px 0.5px black;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 0 100px;
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
+
+div.singlepost { border-top: 1px solid black; }
+div.singlepost:nth-child(1) { border: none; }
+
+h1#sitetitle a { color: #111111; }
+
+h2.posttitle a:link, h2.posttitle a:visited, nav ul li a, p a:link, p a:visited, h3.posttitle a:link, h3.posttitle a:visited, div#comments a, a.readmore, a.page-numbers {
+	color: #00DDEE;
+	transition: 0.3s;
+}
+h2.posttitle a:hover, nav ul li a:hover, p a:hover, h3.posttitle a:hover, div#comments a:hover, a:hover.readmore { filter: brightness(90%); }
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav ul:before, nav ul:after {
+	content: "";
+	display: table;
+}
+
+nav ul:after { clear: both; }
+nav ul { *zoom: 1; }
+
+nav ul li {
+	list-style: none;
+	float: left;
+}
+
+nav#topmenu ul li a {
+	display: block;
+	padding: 10px 18px;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: #00DDEE;
+	text-decoration: none;
+	color: black;
+	transition: 0.3s;
+}
+
+nav#topmenu ul li a:hover { filter: brightness(90%); }
+
+nav#topmenu ul li:nth-child(1) a { border-left: 1px solid black; }
+
+nav ul li.current-menu-item a, nav ul li.current-page-ancestor a, nav ul li.current_page_item a, nav:not(.search) ul li.current_page_parent a, a.comment-reply-link { font-weight: bold; }
+
+nav#childmenu ul li a, nav#bottommenu ul li a { display: block; }
+
+nav#childmenu ul li a, nav#bottommenu ul li a {
+	margin: 12px 8px 0 0;
+}
+
+p#copyright, a.readmore, a.comment-reply-link { font-size: small; }
+
+div.hasthumbnail {
+	position: relative;
+	margin-bottom: 5px;
+}
+
+div.postthumbnail {
+	padding: 0;
+	float: left;
+	width: 160px;
+	margin-bottom: 10px;
+}
+
+div.frontpageposts.hasthumbnail {
+	padding: 0;
+	margin: 0;
+}
+
+div.hasthumbnail:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+div.frontpagept {
+	padding: 0;
+	float: left;
+	width: 160px;
+	margin-bottom: 10px;
+}
+
+p.frontpageblogtext {
+	margin: 0;
+}
+
+div.singlepost:not(:first-child) div.postthumbnail { margin-top: 20px; }
+
+div.banner {
+	margin-top: 20px;
+	max-width: 100%;
+}
+
+div.column, div.calendarday {
+	text-align: center;
+	padding: 0 5px;
+	box-sizing: border-box;
+}
+
+div.row { border: 1px solid black; }
+
+div.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+div#fourohfourpage {
+	text-align: center;
+}
+
+@media (min-width: 1000px) {
+	div.column {
+		float: left;
+		width: 49.9%;
+	}
+	
+	div.column:nth-of-type(1) { border-right: 1px solid black; }
+}
+
+@media (max-width: 1000px) {
+	div.column:nth-of-type(2) {
+		border-top: 1px solid black;
+	}
+}
+
+ul.comment-list {
+	list-style: none;
+	padding: 0;
+}
+
+ul.children {
+	list-style: none;
+	margin-top: 5px;
+}
+
+ul.comment-list {
+	background-color: white;
+	border: 1px solid black;
+}
+
+ul.comment-list li {
+	padding: 5px;
+	border-bottom: 1px dotted black;
+}
+
+ul.comment-list li:last-of-type { border-bottom: none; }
+
+span.says, span.required-field-message, p.comment-form-comment label:not(.searchlabel) { display: none; }
+
+div.comment-author cite.fn {
+	font-weight: bold;
+	font-style: normal;
+	font-size: 25px;
+	vertical-align: top;
+	
+}
+
+div.comment-meta {
+	padding-left: 50px;
+	font-size: small;
+	position: relative;
+	bottom: 20px;
+}
+
+li.comment p { margin: 0; }
+
+h3#reply-title { margin: 10px 0; }
+
+input#submit, input#searchsubmit, div#accountbuttons a {
+	background-color: #00DDEE;
+	padding: 5px;
+	border: 1.5px solid black;
+	color: black;
+	text-decoration: none;
+	font-size: 14px;
+	text-shadow: none;
+}
+
+p.form-submit { margin: 0; }
+p.comment-form-comment { margin-bottom: 8px; }
+
+div.calendarday:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+div.calendarday div.datecontainer a, div.calendarday div.datecontainer {
+	background-color: white;
+	height: 90px;
+	width: 90px;
+	font-size: 36px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	display: table-cell;
+	float: left;
+	line-height: 45px;
+	text-decoration: none;
+	color: black;
+}
+
+div.calendarday div.datecontainer a { transition: 0.3s; }
+
+div.calendarday div.datecontainer a:hover { filter: brightness(90%); }
+
+div.calendarday p.eventdescription {
+	padding-left: 100px;
+}
+
+div#accountbuttons {
+	float: right;
+	margin-top: 28px;
+}
+
+form#search {
+	float: right;
+	position: relative;
+	bottom: 20px;
+}
+
+input#s { height: 21px; }
+
+nav.activityarchive { font-weight: normal; }
+
+p.archivedescholder { padding-left: 100px; }
+
+div.pagination {
+	font-weight: bold;
+	text-align: center;
+	font-size: larger;
+	border-top: 1px dotted black;
+	padding-top: 5px;
+}
+
+p.singleevent p { padding-left: 100px; }
