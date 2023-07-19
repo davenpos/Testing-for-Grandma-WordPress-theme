@@ -92,4 +92,6 @@ function orderActivityDates($query) {
 }
 
 add_action('pre_get_posts', 'orderActivityDates');
+
+/* Test */
 ?>
