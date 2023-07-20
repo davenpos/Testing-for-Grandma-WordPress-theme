@@ -92,4 +92,46 @@ function orderActivityDates($query) {
 }
 
 add_action('pre_get_posts', 'orderActivityDates');
+
+//Code to create the activity post type. In my actual WordPress folder on my computer, this code exists in the mu-plugins folder rather than my theme folder.
+/*
+function activityPostType() {
+	register_post_type('activity', array(
+		'public' => true,
+		'menu_icon' => 'dashicons-calendar',
+		'menu_position' => 20,
+		'supports' => array('title', 'editor', 'excerpt', 'comments'),
+		'has_archive' => true,
+		'rewrite' => array('slug' => 'activities'),
+		'labels' => array(
+			'name' => 'Activities',
+			'singular_name' => 'Activity',
+			'add_new_item' => 'Add New Activity',
+			'new_item' => 'New Activity',
+			'view_item' => 'View Activity',
+			'view_items' => 'View Activities',
+			'search_items' => 'Search Activities',
+			'not_found' => 'No activities found',
+			'all_items' => 'All Activities',
+			'archives' => 'Activity Archives',
+			'attributes' => 'Activity Attributes',
+			'insert_into_item' => 'Insert into activity',
+			'uploaded_to_this_item' => 'Uploaded to this activity',
+			'filter_items_list' => 'Filter activities list',
+			'filter_by_date' => 'Filter by date',
+			'items_list_navigation' => 'Activities list navigation',
+			'items_list' => 'Activities list',
+			'item_published' => 'Activity published',
+			'item_published_privately' => 'Activity privately',
+			'item_reverted_to_draft' => 'Activity reverted to draft',
+			'item_scheduled' => 'Activity scheduled',
+			'item_updated' => 'Activity updated',
+			'item_link' => 'Activity link',
+			'item_link_description' => 'A link to an activity'
+		)
+	));
+}
+
+add_action('init', 'activityPostType');
+*/
 ?>
