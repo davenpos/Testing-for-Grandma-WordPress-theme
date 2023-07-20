@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html <?php language_attributes(); ?>>
 	<head>
+		<meta charset="<?php bloginfo('charset'); ?>">
 		<?php wp_head(); ?>
 	</head>
-	<body>
+	<body <?php body_class(); ?>>
 		<div id="notfooter">
 			<div id="accountbuttons">
 				<?php if (is_user_logged_in()): ?>

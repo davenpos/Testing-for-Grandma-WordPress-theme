@@ -1,6 +1,7 @@
 <?php
 function filesForSite() {
 	wp_enqueue_style('main_stylesheet', get_stylesheet_uri());
+	wp_enqueue_style('font_awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 }
 
 add_action('wp_enqueue_scripts', 'filesForSite');
