@@ -157,7 +157,7 @@ function deleteLike($data) {
 
 //Code to create the activity post type. In my actual WordPress folder on my computer, this code exists in the mu-plugins folder rather than my theme folder.
 /*
-function activityPostType() {
+function newPostTypes() {
 	register_post_type('activity', array(
 		'public' => true,
 		'menu_icon' => 'dashicons-calendar',
@@ -192,8 +192,42 @@ function activityPostType() {
 			'item_link_description' => 'A link to an activity'
 		)
 	));
+	
+	
+	register_post_type('like', array(
+		'public' => false,
+		'show_ui' => true,
+		'menu_icon' => 'dashicons-heart',
+		'supports' => array('title'),
+		'labels' => array(
+			'name' => 'Likes',
+			'singular_name' => 'Like',
+			'add_new_item' => 'Add New Like',
+			'new_item' => 'New Like',
+			'view_item' => 'View Like',
+			'view_items' => 'View Likes',
+			'search_items' => 'Search Likes',
+			'not_found' => 'No likes found',
+			'all_items' => 'All Likes',
+			'archives' => 'Like Archives',
+			'attributes' => 'Like Attributes',
+			'insert_into_item' => 'Insert into like',
+			'uploaded_to_this_item' => 'Uploaded to this like',
+			'filter_items_list' => 'Filter likes list',
+			'filter_by_date' => 'Filter by date',
+			'items_list_navigation' => 'Likes list navigation',
+			'items_list' => 'Likes list',
+			'item_published' => 'Like published',
+			'item_published_privately' => 'Like privately',
+			'item_reverted_to_draft' => 'Like reverted to draft',
+			'item_scheduled' => 'Like scheduled',
+			'item_updated' => 'Like updated',
+			'item_link' => 'Like link',
+			'item_link_description' => 'A link to a like'
+		)
+	));
 }
 
-add_action('init', 'activityPostType');
+add_action('init', 'newPostTypes');
 */
 ?>
