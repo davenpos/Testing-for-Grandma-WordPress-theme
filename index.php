@@ -10,7 +10,7 @@
 
 <div class="postscontainer">
 <?php while (have_posts()): the_post();
-	get_template_part('postlist');
+	get_template_part('postlist', 'post');
 endwhile;
 
 if ($wp_query->found_posts > 10): ?>

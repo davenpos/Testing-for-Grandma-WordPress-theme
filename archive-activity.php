@@ -9,7 +9,7 @@
 </p>
 
 <?php while (have_posts()): the_post();
-	get_template_part('postlist');
+	get_template_part('postlist', 'activity');
 endwhile;
 
 if ($wp_query->found_posts > 10): ?>
