@@ -29,7 +29,7 @@ h2.posttitle a:link, h2.posttitle a:visited, nav ul li a, p a:link, p a:visited,
 	color: #00DDEE;
 	transition: 0.3s;
 }
-h2.posttitle a:hover, nav ul li a:hover, p a:hover, h3.posttitle a:hover, div#comments a:hover, a:hover.readmore, nav#topmenu ul li a:hover, div.calendarday div.datecontainer a:hover { filter: brightness(90%); }
+h2.posttitle a:hover, nav ul li a:hover, p a:hover, h3.posttitle a:hover, div#comments a:hover, a:hover.readmore, nav#topmenu ul li a:hover, div.calendarday div.datecontainer a:hover, a.commentnum:hover { filter: brightness(90%); }
 
 nav ul {
 	margin: 0;
@@ -229,7 +229,7 @@ div.calendarday div.datecontainer a, div.calendarday div.datecontainer {
 	color: black;
 }
 
-div.calendarday div.datecontainer a { transition: 0.3s; }
+div.calendarday div.datecontainer a, a.commentnum { transition: 0.3s; }
 
 div.calendarday p.eventdescription {
 	padding-left: 100px;
