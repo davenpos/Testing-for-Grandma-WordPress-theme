@@ -9,6 +9,13 @@
 	</div>
 	<?php endif; ?>
 	<div class="postcontent">
+		<?php get_template_part('likebox'); ?>
+		<a class="commentnum" href="<?php echo get_the_permalink() . '#comments'; ?>">
+			<span class="postinfo">
+				<i class="fa fa-comment" aria-hidden="true"></i>
+				<span class="likecount"><?php echo get_comments_number(); ?></span>
+			</span>
+		</a>
 		<h3 class="posttitle"><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
 		<p>
 			<?php echo get_the_excerpt();
@@ -28,6 +35,13 @@
 			<?php echo $eventDate->format('d'); ?>
 		</a></div>
 		<p class="eventdescription">
+			<?php get_template_part('likebox'); ?>
+			<a class="commentnum" href="<?php echo get_the_permalink() . '#comments'; ?>">
+				<span class="postinfo">
+					<i class="fa fa-comment" aria-hidden="true"></i>
+					<span class="likecount"><?php echo get_comments_number(); ?></span>
+				</span>
+			</a>
 			<h3 class="posttitle"><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
 			<p class="archivedescholder">
 				<?php echo get_the_excerpt();

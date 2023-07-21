@@ -29,7 +29,7 @@ h2.posttitle a:link, h2.posttitle a:visited, nav ul li a, p a:link, p a:visited,
 	color: #00DDEE;
 	transition: 0.3s;
 }
-h2.posttitle a:hover, nav ul li a:hover, p a:hover, h3.posttitle a:hover, div#comments a:hover, a:hover.readmore { filter: brightness(90%); }
+h2.posttitle a:hover, nav ul li a:hover, p a:hover, h3.posttitle a:hover, div#comments a:hover, a:hover.readmore, nav#topmenu ul li a:hover, div.calendarday div.datecontainer a:hover { filter: brightness(90%); }
 
 nav ul {
 	margin: 0;
@@ -60,8 +60,6 @@ nav#topmenu ul li a {
 	color: black;
 	transition: 0.3s;
 }
-
-nav#topmenu ul li a:hover { filter: brightness(90%); }
 
 nav#topmenu ul li:nth-child(1) a { border-left: 1px solid black; }
 
@@ -114,6 +112,12 @@ div.singlepost:not(:first-child) div.postthumbnail { margin-top: 20px; }
 div.banner {
 	margin-top: 20px;
 	max-width: 100%;
+}
+
+div.banner img {
+	max-width: 100%;
+	height: auto;
+	width: auto\9;
 }
 
 div.column, div.calendarday {
@@ -227,8 +231,6 @@ div.calendarday div.datecontainer a, div.calendarday div.datecontainer {
 
 div.calendarday div.datecontainer a { transition: 0.3s; }
 
-div.calendarday div.datecontainer a:hover { filter: brightness(90%); }
-
 div.calendarday p.eventdescription {
 	padding-left: 100px;
 }
@@ -259,3 +261,53 @@ div.pagination {
 }
 
 p.singleevent p { padding-left: 100px; }
+
+.newmargin, span.likebox:not(.singlepostnothumbnail) { margin: 20px 0; }
+div.postcontent span.likebox, p.eventdescription span.likebox { margin: 0; }
+
+span.postinfo {
+	float: right;
+	border: 1px solid black;
+	padding: 5px 8px;
+	border-radius: 5px;
+	background-color: #DDDDDD;
+	text-shadow: none;
+}
+
+span.likebox {
+	color: red;
+	cursor: pointer;
+}
+
+span.likebox .fa-heart {
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(0.2);
+	position: absolute;
+	margin-top: 1px;
+	right: 124px;
+	transition: all 0.4s ease-out;
+}
+
+div.postcontent span:not(.singlepostnothumbnail).likebox .fa-heart {
+	right: 24px;
+}
+
+p.eventdescription span.likebox .fa-heart { right: 129px; }
+
+span.likebox[data-exists="yes"] .fa-heart {
+	visibility: visible;
+	opacity: 1;
+	transform: scale(1);
+}
+span.likebox[data-exists="yes"] .fa-heart-o {
+	visibility: hidden;
+	opacity: 0;
+}
+
+span.likecount { margin-left: 2px; }
+
+a.commentnum span.postinfo {
+	margin-right: 8px;
+	color: black;
+}

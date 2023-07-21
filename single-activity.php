@@ -1,7 +1,8 @@
 <?php get_header();
 
-while (have_posts()): the_post(); ?>
-	<h2 class="posttitle"><?php the_title();?></h2>
+while (have_posts()): the_post();
+	get_template_part('likebox'); ?>
+	<h2 class="posttitle newmargin"><?php the_title();?></h2>
 	<div class="calendarday">
 		<div class="datecontainer">
 			<?php

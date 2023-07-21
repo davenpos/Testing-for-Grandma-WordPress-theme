@@ -3,7 +3,8 @@ get_header();
 
 while (have_posts()): the_post(); ?>
 	<div class="banner"><?php the_post_thumbnail('banner'); ?></div>
-	<h2><?php the_title();?></h2>
+	<?php get_template_part('likebox'); ?>
+	<h2 class="newmargin"><?php the_title();?></h2>
 	<p><?php the_content(); ?></p>
 <?php endwhile;
 

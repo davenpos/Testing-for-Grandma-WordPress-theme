@@ -2,6 +2,11 @@
 function filesForSite() {
 	wp_enqueue_style('main_stylesheet', get_stylesheet_uri());
 	wp_enqueue_style('font_awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+	wp_enqueue_script('like_script', get_theme_file_uri('/like.js'), array('jquery'), '1.0', true);
+	wp_localize_script('like_script', 'siteData', array(
+		'root_url' => get_site_url(),
+		'nonce' => wp_create_nonce('wp_rest')
+	));
 }
 
 add_action('wp_enqueue_scripts', 'filesForSite');
@@ -85,14 +90,70 @@ function removeAdminBar() {
 
 add_action('wp_loaded', 'removeAdminBar');
 
-function orderActivityDates($query) {
+function orderQueries($query) {
 	if (!is_admin() and is_post_type_archive('activity') and $query->is_main_query()):
 		$query->set('meta_key', 'activity-date');
 		$query->set('orderby', 'meta_value');
 	endif;
 }
 
-add_action('pre_get_posts', 'orderActivityDates');
+add_action('pre_get_posts', 'orderQueries');
+
+function likeRoutes() {
+	register_rest_route('testForGrandma/v1', 'manageLike', array(
+		'methods' => 'POST',
+		'callback' => 'createLike'
+	));
+
+	register_rest_route('testForGrandma/v1', 'manageLike', array(
+		'methods' => 'DELETE',
+		'callback' => 'deleteLike'
+	));
+}
+
+add_action('rest_api_init', 'likeRoutes');
+
+function createLike($data) {
+	if (is_user_logged_in()):
+		$postID = sanitize_text_field($data['postID']);
+
+		$existsQuery = new WP_Query(array(
+			'post_type' => 'like',
+			'author' => get_current_user_id(),
+			'meta_query' => array(
+				array(
+					'key' => 'liked_post_id',
+					'compare' => '=',
+					'value' => $postID
+				)
+			)
+		));
+
+		if ($existsQuery->found_posts == 0 and (get_post_type($postID) == 'post' or get_post_type($postID) == 'activity')):
+			return wp_insert_post(array(
+				'post_type' => 'like',
+				'post_status' => 'publish',
+				'meta_input' => array(
+					'liked_post_id' => $postID
+				)
+			));
+		else:
+			die("Invalid post ID.");
+		endif;
+	else:
+		die("Only logged in users can like posts or activities.");
+	endif;
+}
+
+function deleteLike($data) {
+	$likeID = sanitize_text_field($data['like']);
+	if (get_current_user_id() == get_post_field('post_author', $likeID) and get_post_type($likeID) == 'like'):
+		wp_delete_post($likeID, true);
+		return 'Like deleted';
+	else:
+		die("You do not have permission to remove likes.");
+	endif;
+}
 
 //Code to create the activity post type. In my actual WordPress folder on my computer, this code exists in the mu-plugins folder rather than my theme folder.
 /*
