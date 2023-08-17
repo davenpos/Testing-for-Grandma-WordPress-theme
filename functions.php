@@ -2,8 +2,8 @@
 function filesForSite() {
 	wp_enqueue_style('main_stylesheet', get_stylesheet_uri());
 	wp_enqueue_style('font_awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-	wp_enqueue_script('like_script', get_theme_file_uri('/like.js'), array('jquery'), '1.0', true);
-	wp_localize_script('like_script', 'siteData', array(
+	wp_enqueue_script('main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
+	wp_localize_script('main-js', 'siteData', array(
 		'root_url' => get_site_url(),
 		'nonce' => wp_create_nonce('wp_rest')
 	));
